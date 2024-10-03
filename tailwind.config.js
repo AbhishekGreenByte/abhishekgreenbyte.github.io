@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-        poppins: ['Poppins', 'serif'],
+        inconsolata: ['Inconsolata', 'monospace'],
       },
       colors: {
         primary: colors.blue[600],
