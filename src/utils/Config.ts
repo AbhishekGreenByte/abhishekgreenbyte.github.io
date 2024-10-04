@@ -1,5 +1,6 @@
-import {IKVPair, IPage} from "./models";
+import {ICodeBlock, IKVPair, IPage} from "./models";
 import linksJson from '../resources/links.json';
+import codeJson from "../resources/code.json"
 import {BsBook, BsCodeSlash, BsPerson} from "react-icons/bs";
 import Home from "../pages/Home";
 import Blogs from "../pages/Blogs";
@@ -10,6 +11,7 @@ class Config {
 
     private static _instance: Config;
     private links : Map<string,string>;
+    private codeBlocks : Map<string,ICodeBlock>;
     private components: Map<string, IPage> = new Map([
         ['default', {label: 'Default', router: '/', showMenu: false, component: Home}],
         ['me', {label: 'me', router: '/me', showMenu: true, component: Me, icon: BsPerson}],
@@ -27,6 +29,7 @@ class Config {
 
     private constructor() {
         this.links = this.loadKVPair(linksJson);
+        this.codeBlocks = this.loadCodeBlock(codeJson);
     }
 
     private loadKVPair = (json: Array<IKVPair>) => {
@@ -36,6 +39,15 @@ class Config {
         });
         return kvPair;
     }
+
+    private loadCodeBlock = (json: Array<ICodeBlock>) => {
+        let codeBlock = new Map<string, ICodeBlock>();
+        json.forEach(item => {
+            codeBlock.set(item.name, item);
+        });
+        return codeBlock;
+    }
+
 
     public getLink = (name:string) => {
         return this.links.get(name) || "";
@@ -52,6 +64,10 @@ class Config {
 
     public getAllPages() {
         return Array.from(this.components.values());
+    }
+
+    public getCodeBlock = (name:string) => {
+        return this.codeBlocks.get(name);
     }
 
 }

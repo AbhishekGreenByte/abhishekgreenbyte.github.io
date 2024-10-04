@@ -1,0 +1,7 @@
+[
+  {
+    "name": "intro",
+    "language": "javascript",
+    "code": "const developer = {\n    name: 'Abhishek Sahu',\n    hardWorker: true,\n    quickLearner: true,\n    problemSolver: true,\n    skills: ['Java', 'Python', 'React', 'Typescript', 'Oracle DB', 'MySql'],\n    currentCompany: 'Oracle',\n    location: 'Bengaluru'\n}"
+  }
+]
