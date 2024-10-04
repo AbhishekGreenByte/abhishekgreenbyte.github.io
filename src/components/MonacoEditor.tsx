@@ -22,7 +22,7 @@ const MonacoEditor: React.FC<IMonacoEditor> = (props) => {
     return (
         <div className="w-full h-full shadow-lg ">
             <div className="w-full h-full border border-4 border-gray-600 rounded-md relative">
-                <div className="flex items-center justify-between px-2 bg-gray-600 rounded-md w-full h-10 shadow absolute top-0 text-white">
+                <div className="flex items-center justify-between px-2 bg-gray-600 w-full h-10 absolute top-0 text-white">
                     <div className="flex items-center space-x-2">
                         <div>{language}</div>
                         {/* Add "+" and "-" buttons to change font size */}
