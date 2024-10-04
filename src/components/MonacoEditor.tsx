@@ -20,17 +20,17 @@ const MonacoEditor: React.FC<IMonacoEditor> = (props) => {
     const decreaseFontSize = () => setFontSize(fontSize > 1 ? fontSize - 1 : 1); // Prevent font size from going below 1
 
     return (
-        <div className="w-full h-full">
-            <div className="w-full h-full border rounded-md relative">
-                <div className="flex items-center justify-between px-2 bg-gray-200 w-full h-10 shadow absolute top-0 z-10">
+        <div className="w-full h-full shadow-lg ">
+            <div className="w-full h-full border border-4 border-gray-600 rounded-md relative">
+                <div className="flex items-center justify-between px-2 bg-gray-600 rounded-md w-full h-10 shadow absolute top-0 text-white">
                     <div className="flex items-center space-x-2">
                         <div>{language}</div>
                         {/* Add "+" and "-" buttons to change font size */}
                         <button onClick={increaseFontSize}
-                                className="bg-gray-300 w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-400 text-xl">+
+                                className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-800 text-xl">+
                         </button>
                         <button onClick={decreaseFontSize}
-                                className="bg-gray-300 w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-400 text-xl">-
+                                className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-800 text-xl">-
                         </button>
                     </div>
                     <div>
@@ -42,12 +42,12 @@ const MonacoEditor: React.FC<IMonacoEditor> = (props) => {
                         </button>
                     </div>
                 </div>
-                <div className="w-full h-full pt-10 bg-primary">
+                <div className="w-full h-full pt-10 bg-gray-600">
                     <Editor
                         height="100%"
                         defaultLanguage={language}
                         value={code}
-                        theme="light"
+                        theme="vs-dark"
                         onChange={handleCopyCode}
                         options={{
                             domReadOnly: true,
